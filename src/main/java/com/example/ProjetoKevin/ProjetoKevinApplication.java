@@ -39,7 +39,7 @@ public class ProjetoKevinApplication {
                 .cpf(33333333333L)
                 .banco("Itau")
                 .dtNascimento("20/09/1945")
-                .genero(Genero.Masculino)
+                .genero(Genero.MASCULINO)
                 .build();
 
 
@@ -56,34 +56,40 @@ public class ProjetoKevinApplication {
                 double valorCompra = 0;
                 int opcaoMenu = 0;
                 while (opcaoMenu !=7) {
-                    System.out.println(jovem1.MostrarMenuCompra());
+                    System.out.println(jovem1.mostrarMenuCompra());
                     opcaoMenu = input.nextInt();
                     switch (opcaoMenu){
                         case 1:
                             System.out.println("Mouse adicionado");
                             valorCompra = valorCompra + 50;
+                            break;
                         case 2:
                             System.out.println("Teclado adicionado");
                             valorCompra = valorCompra + 200;
+                            break;
                         case 3:
                             System.out.println("RTX 4090 adicionado");
                             valorCompra = valorCompra + 25000;
+                            break;
                         case 4:
                             System.out.println("Intel Core i9-14900K adicionado");
                             valorCompra = valorCompra + 3000;
+                            break;
                         case 5:
                             System.out.println("MousePad adicionado");
                             valorCompra = valorCompra + 10;
+                            break;
                         case 6:
                             System.out.println("Adaptador USB-C para USB adicionado");
                             valorCompra = valorCompra + 5;
+                            break;
                         case 7:
                             System.out.println("Compras finalizadas\n");
                             break;
                     }
                 }
                 System.out.println("Sua compra ficou R$"+valorCompra);
-                if (!jovem1.SaberSituacaoAtual(valorCompra)) {
+                if (!jovem1.saberSituacaoAtual(valorCompra)) {
                     System.out.println("Você está endividado!\nVocê está devendo "+jovem1.descobrirSaldoPosCompra(valorCompra));
                 }else {
                     System.out.println("Você está positivo!\nSaldo atual: "+jovem1.getSaldo());

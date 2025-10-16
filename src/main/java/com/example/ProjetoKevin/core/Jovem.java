@@ -5,7 +5,7 @@ import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
 @Getter
-public class Jovem extends Cliente implements Gastar {
+public class Jovem extends Cliente implements Operacao {
     private String situacaoFinanceira;
     public Jovem(String nome, long cpf, String banco, double saldo, String dtNascimento, String situacaoFinanceira) {
         super(nome, cpf, banco, saldo, dtNascimento);
@@ -19,12 +19,12 @@ public class Jovem extends Cliente implements Gastar {
 
     @Override
     public double descobrirSaldoPosCompra(double valorCompra) {
-        this.saldo = this.saldo - valorCompra;
-        return this.saldo;
+        double saldoFinal = this.saldo - valorCompra;
+        return saldoFinal;
     }
 
     @Override
-    public boolean SaberSituacaoAtual(double valorCompra) {
+    public boolean saberSituacaoAtual(double valorCompra) {
         if (this.descobrirSaldoPosCompra(valorCompra) < 0) {
             this.situacaoFinanceira="Saldo negativo";
             return false;
@@ -34,7 +34,7 @@ public class Jovem extends Cliente implements Gastar {
     }
 
     @Override
-    public String MostrarMenuCompra() {
+    public String mostrarMenuCompra() {
         return "Menu de compras: \n1 - Mouse (R$50,00)\n2 - Teclado (R$200,00)\n3 - RTX 4090 (R$25000,00)\n4 - Intel Core i9-14900K (R$3000,00)\n5 - MousePad (R$10,00)\n6 - Adaptador USB-C para USB (R$5,00)\n7 - Finalizar compra";
     }
 }
