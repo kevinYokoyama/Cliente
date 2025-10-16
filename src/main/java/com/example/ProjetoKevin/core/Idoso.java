@@ -23,7 +23,7 @@ public class Idoso extends Cliente implements Usufruir {
     public boolean verificarAposentadoria(int anosTrabalhados) {
         if (this.genero == Genero.Masculino)
             return verificarAnosMasc(anosTrabalhados);
-        if (this.genero == Genero.Feminino)
+        if (this.genero == Genero.FEMININO)
             return verificarAnosFemin(anosTrabalhados);
         return false;
     }
